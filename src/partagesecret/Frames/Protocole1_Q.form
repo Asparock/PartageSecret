@@ -145,7 +145,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="96" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -228,6 +228,9 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="totalKeys">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -356,6 +359,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="secretStringF">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

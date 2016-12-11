@@ -134,6 +134,8 @@ public class Protocole1_Q extends javax.swing.JFrame {
         secretBin.setRows(5);
         jScrollPane3.setViewportView(secretBin);
 
+        totalKeys.setEditable(false);
+
         jLabel4.setText("Total Clés Cochées :");
 
         checkBox_1.setName("1"); // NOI18N
@@ -223,6 +225,8 @@ public class Protocole1_Q extends javax.swing.JFrame {
                 convertFActionPerformed(evt);
             }
         });
+
+        secretStringF.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -320,7 +324,7 @@ public class Protocole1_Q extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(convertF)
                             .addComponent(secretStringF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -328,6 +332,7 @@ public class Protocole1_Q extends javax.swing.JFrame {
 
     private void ConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertActionPerformed
         if(!this.secretString.getText().equals("")){
+            reset();
             this.secretBin.setText(this.stringMan.stringToBin(this.secretString.getText()));            
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -438,6 +443,13 @@ public class Protocole1_Q extends javax.swing.JFrame {
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret et de le convertir", "Erreur", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    public void reset(){
+        for(JCheckBox cb : this.checkboxes){
+            cb.setSelected(false);
+            this.updateTotalKey();
+        }        
     }
     
     public void updateTotalKey(){        
