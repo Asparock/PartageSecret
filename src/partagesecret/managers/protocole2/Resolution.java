@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package partagesecret.managers.protocole2;
 
 import static java.lang.Math.round;
 import java.util.ArrayList;
 
-/**
- *
- * @author Dimi
- */
 public class Resolution {
     
     public Resolution(){
