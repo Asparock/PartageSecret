@@ -51,5 +51,31 @@ public class StringManager {
         return chainecar;
     }
     
+    public String StringToBinary(String s){
+        byte[] bytes = s.getBytes();
+        StringBuilder binaire = new StringBuilder();
+            for (byte b : bytes)
+            {
+               int val = b;
+               for (int i = 0; i < 8; i++)
+               {
+                  binaire.append((val & 128) == 0 ? 0 : 1);
+                  val <<= 1;
+               }
+            }
+        String res = binaire.toString();
+        return res;
+    }
+    
+    public long BinaryToDecimal(String str){         
+        double j=0;
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i)== '1'){
+                j=j+ Math.pow(2,str.length()-1-i);
+            }
+        }
+        return (long) j;
+    }
+    
     
 }
