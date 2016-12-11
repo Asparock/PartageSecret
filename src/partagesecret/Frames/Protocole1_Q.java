@@ -40,6 +40,8 @@ public class Protocole1_Q extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         secretBin.setLineWrap(true);
         secretBin.setWrapStyleWord(true);
+        secretBinKeys.setLineWrap(true);
+        secretBinKeys.setWrapStyleWord(true);
         
     }
     
@@ -72,6 +74,11 @@ public class Protocole1_Q extends javax.swing.JFrame {
         checkBox_4 = new javax.swing.JCheckBox();
         checkBox_5 = new javax.swing.JCheckBox();
         labelIcon = new javax.swing.JLabel();
+        rebuild = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        secretBinKeys = new javax.swing.JTextArea();
+        convertF = new javax.swing.JButton();
+        secretStringF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -195,41 +202,78 @@ public class Protocole1_Q extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        rebuild.setText("Reconstitution");
+        rebuild.setEnabled(false);
+        rebuild.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rebuildActionPerformed(evt);
+            }
+        });
+
+        jScrollPane4.setPreferredSize(new java.awt.Dimension(190, 80));
+
+        secretBinKeys.setEditable(false);
+        secretBinKeys.setColumns(20);
+        secretBinKeys.setRows(5);
+        jScrollPane4.setViewportView(secretBinKeys);
+
+        convertF.setText("Convertir");
+        convertF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                convertFActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(cb_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(cb_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(secretString, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(Convert)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(getKey_1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(getKey_2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(getKey_3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(getKey_4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(getKey_5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(totalKeys, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelIcon)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(secretString, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Convert)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(49, 49, 49)
+                                .addComponent(rebuild))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(getKey_1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap()
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(getKey_2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(convertF)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(getKey_3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(getKey_4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(getKey_5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(totalKeys, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelIcon)))
+                                .addComponent(secretStringF, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -265,7 +309,18 @@ public class Protocole1_Q extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labelIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(totalKeys, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rebuild, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(convertF)
+                            .addComponent(secretStringF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
@@ -346,6 +401,32 @@ public class Protocole1_Q extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkBox_5ActionPerformed
 
+    private void rebuildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rebuildActionPerformed
+        if(!this.secretBin.getText().equals("")){
+            ArrayList<HashMap<String,String>> selected = new ArrayList<>();
+            for(JCheckBox cb : this.checkboxes){
+                if(cb.isSelected()){
+                    selected.add(advancedMan.getKeysFromBin(this.secretBin.getText())[Integer.parseInt(cb.getName())-1]);
+                }   
+            }
+            if(selected.size() == 3){
+                this.secretBinKeys.setText(this.advancedMan.keysToBin(selected.get(0), selected.get(1), selected.get(2)));            
+            }
+        } else {
+            this.checkBox_5.setSelected(false);
+            javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret et de le convertir", "Erreur", JOptionPane.ERROR_MESSAGE);
+        }       
+    }//GEN-LAST:event_rebuildActionPerformed
+
+    private void convertFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convertFActionPerformed
+        if(!this.secretBinKeys.getText().equals("")){
+            this.secretStringF.setText(this.stringMan.binToString(this.secretBinKeys.getText()));
+        } else {
+            this.checkBox_5.setSelected(false);
+            javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret et de le convertir", "Erreur", JOptionPane.ERROR_MESSAGE);
+        }       
+    }//GEN-LAST:event_convertFActionPerformed
+
     public void showKeys(Integer i){
         if(!this.secretBin.getText().equals("")){
             HashMap<String,String> keys = advancedMan.getKeysFromBin(this.secretBin.getText())[i-1];
@@ -377,7 +458,9 @@ public class Protocole1_Q extends javax.swing.JFrame {
         
         if(allLetters.length() == 10){
             this.labelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ok.png")));
+            this.rebuild.setEnabled(true);
         } else {
+            this.rebuild.setEnabled(false);
             this.labelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/notok.png")));            
         }
     }
@@ -390,6 +473,7 @@ public class Protocole1_Q extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkBox_3;
     private javax.swing.JCheckBox checkBox_4;
     private javax.swing.JCheckBox checkBox_5;
+    private javax.swing.JButton convertF;
     private javax.swing.JButton getKey_1;
     private javax.swing.JButton getKey_2;
     private javax.swing.JButton getKey_3;
@@ -398,9 +482,13 @@ public class Protocole1_Q extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel labelIcon;
+    private javax.swing.JButton rebuild;
     private javax.swing.JTextArea secretBin;
+    private javax.swing.JTextArea secretBinKeys;
     private javax.swing.JTextField secretString;
+    private javax.swing.JTextField secretStringF;
     private javax.swing.JTextField totalKeys;
     // End of variables declaration//GEN-END:variables
 }

@@ -42,7 +42,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        Converter.setText("Converter");
+        Converter.setText("Tools");
         Converter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConverterActionPerformed(evt);
