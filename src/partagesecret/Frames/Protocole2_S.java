@@ -134,7 +134,7 @@ public class Protocole2_S extends javax.swing.JFrame {
 
     private void ConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConvertActionPerformed
         if(!this.key.getText().equals("")){
-            this.secretString.setText(this.stringMan.binToString(this.key.getText()));
+            this.secretString.setText(this.stringMan.convertBinaryStringToString(Long.parseLong(this.key.getText())));
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer les deux clés, et de reconstruire", "Erreur", JOptionPane.ERROR_MESSAGE);
         }

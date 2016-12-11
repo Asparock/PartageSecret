@@ -68,5 +68,34 @@ public class StringManager {
         return (long) j;
     }
     
+
+    public String convertBinaryStringToString(Long n){
+        String res = Long.toBinaryString(n);
+
+        int decalage = 8 - res.length() % 8;
+        if(decalage!=0){
+            for(int i = 0 ; i < decalage ; i++){
+                res = "0" + res;
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        char[] chars = res.replaceAll("\\s", "").toCharArray();
+        int [] mapping = {1,2,4,8,16,32,64,128};
+
+        for (int j = 0; j < chars.length; j+=8) {
+            int idx = 0;
+            int sum = 0;
+            for (int i = 7; i>= 0; i--) {
+                if (chars[i+j] == '1') {
+                    sum += mapping[idx];
+                }
+                idx++;
+            }
+            sb.append(Character.toChars(sum));
+        }
+        return sb.toString();
+    }
+    
     
 }
