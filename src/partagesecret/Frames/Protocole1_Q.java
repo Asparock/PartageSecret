@@ -24,8 +24,10 @@ public class Protocole1_Q extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Procole 1 - Question 1");
         
-        for( Component comp : this.cb_Panel.getComponents() ) {
-            if( comp instanceof JCheckBox ) checkboxes.add( (JCheckBox)comp );
+        //On ajoute toutes les checkbox dans un tableau
+        for(Component comp : this.cb_Panel.getComponents()) {
+            if(comp instanceof JCheckBox) 
+                checkboxes.add((JCheckBox)comp);
         }      
         
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -327,7 +329,6 @@ public class Protocole1_Q extends javax.swing.JFrame {
     }//GEN-LAST:event_ConvertActionPerformed
 
     private void getKey_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getKey_2ActionPerformed
-        
         showKeys(2);
     }//GEN-LAST:event_getKey_2ActionPerformed
 
@@ -349,7 +350,15 @@ public class Protocole1_Q extends javax.swing.JFrame {
 
     private void checkBox_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBox_1ActionPerformed
         if(!this.secretBin.getText().equals("")){
-            updateTotalKey();
+            int compteur = 0;
+            for(JCheckBox cb : this.checkboxes)if(cb.isSelected())compteur++;
+            
+            if(compteur != 4){
+                updateTotalKey();  
+            } else {
+                this.checkBox_1.setSelected(false);
+                javax.swing.JOptionPane.showMessageDialog(this, "Ne cocher que 3 checkbox maximum", "Erreur", JOptionPane.ERROR_MESSAGE);                
+            }            
         } else {
             this.checkBox_1.setSelected(false);
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret et de le convertir", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -358,7 +367,15 @@ public class Protocole1_Q extends javax.swing.JFrame {
 
     private void checkBox_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBox_2ActionPerformed
         if(!this.secretBin.getText().equals("")){
-            updateTotalKey();      
+            int compteur = 0;
+            for(JCheckBox cb : this.checkboxes)if(cb.isSelected())compteur++;
+            
+            if(compteur != 4){
+                updateTotalKey();  
+            } else {
+                this.checkBox_2.setSelected(false);
+                javax.swing.JOptionPane.showMessageDialog(this, "Ne cocher que 3 checkbox maximum", "Erreur", JOptionPane.ERROR_MESSAGE);                
+            }            
         } else {
             this.checkBox_2.setSelected(false);
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret et de le convertir", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -367,7 +384,15 @@ public class Protocole1_Q extends javax.swing.JFrame {
 
     private void checkBox_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBox_3ActionPerformed
         if(!this.secretBin.getText().equals("")){
-            updateTotalKey();      
+            int compteur = 0;
+            for(JCheckBox cb : this.checkboxes)if(cb.isSelected())compteur++;
+            
+            if(compteur != 4){
+                updateTotalKey();  
+            } else {
+                this.checkBox_3.setSelected(false);
+                javax.swing.JOptionPane.showMessageDialog(this, "Ne cocher que 3 checkbox maximum", "Erreur", JOptionPane.ERROR_MESSAGE);                
+            }            
         } else {
             this.checkBox_3.setSelected(false);
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret et de le convertir", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -376,7 +401,15 @@ public class Protocole1_Q extends javax.swing.JFrame {
 
     private void checkBox_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBox_4ActionPerformed
         if(!this.secretBin.getText().equals("")){
-            updateTotalKey();      
+            int compteur = 0;
+            for(JCheckBox cb : this.checkboxes)if(cb.isSelected())compteur++;
+            
+            if(compteur != 4){
+                updateTotalKey();  
+            } else {
+                this.checkBox_4.setSelected(false);
+                javax.swing.JOptionPane.showMessageDialog(this, "Ne cocher que 3 checkbox maximum", "Erreur", JOptionPane.ERROR_MESSAGE);                
+            }            
         } else {
             this.checkBox_4.setSelected(false);
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret et de le convertir", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -385,7 +418,15 @@ public class Protocole1_Q extends javax.swing.JFrame {
 
     private void checkBox_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBox_5ActionPerformed
         if(!this.secretBin.getText().equals("")){
-            updateTotalKey();      
+            int compteur = 0;
+            for(JCheckBox cb : this.checkboxes)if(cb.isSelected())compteur++;
+            
+            if(compteur != 4){
+                updateTotalKey();  
+            } else {
+                this.checkBox_5.setSelected(false);
+                javax.swing.JOptionPane.showMessageDialog(this, "Ne cocher que 3 checkbox maximum", "Erreur", JOptionPane.ERROR_MESSAGE);                
+            }            
         } else {
             this.checkBox_5.setSelected(false);
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret et de le convertir", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -438,29 +479,30 @@ public class Protocole1_Q extends javax.swing.JFrame {
         }        
     }
     
-    public void updateTotalKey(){        
+    public void updateTotalKey(){ 
         HashMap<String,String> keys = new HashMap<>();
-        
+
         for(JCheckBox cb : this.checkboxes){
             if(cb.isSelected()){
                 keys.putAll(advancedMan.getKeysFromBin(this.secretBin.getText())[Integer.parseInt(cb.getName())-1]);
             }   
         }
-        
+
         String allLetters = "";
         for(String str : keys.keySet()){
             allLetters += str;
         }
-        
+
         this.totalKeys.setText(allLetters);    
-        
+
         if(allLetters.length() == 10){
-            this.labelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ok.png")));
             this.rebuild.setEnabled(true);
+            this.labelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ok.png")));
         } else {
             this.rebuild.setEnabled(false);
             this.labelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/notok.png")));            
-        }
+        }            
+
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

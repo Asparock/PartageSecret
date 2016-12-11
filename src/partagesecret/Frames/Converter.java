@@ -6,9 +6,7 @@ import partagesecret.managers.StringManager;
 public class Converter extends javax.swing.JFrame {
 
     private StringManager sman = new StringManager();
-    /**
-     * Creates new form Converter
-     */
+    
     public Converter() {
         initComponents();
         
