@@ -7,8 +7,7 @@ public class Repartition {
     
     private StringManager stringMan = new StringManager();    
     
-    public Repartition(){   
-    }
+    public Repartition(){}
     
     public ArrayList<Long> getKeys(long decimal){
         ArrayList<Long> ret = new ArrayList<>();

@@ -3,7 +3,6 @@ package partagesecret.Frames;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import partagesecret.managers.SimpleManager;
 import partagesecret.managers.StringManager;
 import partagesecret.managers.protocole2.Repartition;
 
@@ -154,12 +153,11 @@ public class Protocole2_K extends javax.swing.JFrame {
             if(this.secretString.getText().length() <= 5){
                 this.secretDec.setText(""+stringMan.BinaryToDecimal(stringMan.StringToBinary(this.secretString.getText())));   
             }   else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Le secret doit être < à 5 caractères", "Erreur", JOptionPane.ERROR_MESSAGE);
+                javax.swing.JOptionPane.showMessageDialog(this, "Le secret doit être <= à 5 caractères", "Erreur", JOptionPane.ERROR_MESSAGE);
             }                       
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer un secret", "Erreur", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_ConvertActionPerformed
 
     private void createKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createKeysActionPerformed
@@ -170,7 +168,6 @@ public class Protocole2_K extends javax.swing.JFrame {
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Merci d'entrer et de convertir un secret", "Erreur", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_createKeysActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
